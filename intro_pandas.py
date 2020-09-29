@@ -99,14 +99,14 @@ df_can.isnull().sum()
 df_can.describe()
 
 ####################################################################
-# Indexing and Selection (slicing)
-# Select Column:
-#    df.column_name 
-#    df['column'] 
-#    df[['column 1', 'column 2']] 
-# Select Row:
-#    df.loc[label]    #filters by the labels of the index/column          
-#    df.iloc[index]   #filters by the positions of the index/column        
+# Select Column
+#      There are two ways to filter on a column name:
+#      Method 1: Quick and easy, but only works if the column name 
+#                does NOT have spaces or special characters.
+#          df_can.column_name  (returns series)
+#      Method 2: More robust, and can filter on multiple columns.
+#          df['column']   (returns series)
+#          df[['column 1', 'column 2']] (returns dataframe)       
 ####################################################################
 
 print(df_can.Country)  # returns a series
@@ -146,6 +146,14 @@ df_can.head(3)
 # ie.  no "Country" is printed above
 df_can.index.name = None
 df_can.head(3)
+
+####################################################################
+# Select ROW:
+#    df_can.loc[label]        
+#        #filters by the labels of the index/column
+#    df_can.iloc[index]       
+#        #filters by the positions of the index/column
+####################################################################
 
 # view the number of immigrants from Japan (row 87) for the following scenarios: 
 # 1. The full row data (all columns) 
